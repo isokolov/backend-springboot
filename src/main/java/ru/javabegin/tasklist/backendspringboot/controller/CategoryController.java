@@ -33,6 +33,11 @@ public class CategoryController {
         return list; // JSON формат будет использоваться автоматически
     }
 
+    @GetMapping("/all")
+    public List<Category> findAll() {
+        return categoryRepository.findAllByOrderByTitleAsc();
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Category> add(@RequestBody Category category){
         // проверка на обязательные параметры

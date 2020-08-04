@@ -34,6 +34,11 @@ public class PriorityController {
         return list; // JSON формат будет использоваться автоматически
     }
 
+    @GetMapping("/all")
+    public List<Priority> findAll() {
+        return priorityRepository.findAllByOrderByIdAsc();
+    }
+
 
     @PostMapping("/add")
     public ResponseEntity<Priority> add(@RequestBody Priority priority){
